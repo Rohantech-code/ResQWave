@@ -1,0 +1,216 @@
+import React from "react";
+
+function BottomNav() {
+  return (
+    <div
+      style={{
+        position: "fixed",
+        bottom: 0,
+        left: 0,
+        right: 0,
+        background: "white",
+        display: "flex",
+        justifyContent: "space-around",
+        borderTop: "1px solid #ddd",
+        padding: "10px 0",
+      }}
+    >
+      <button>🏫 Learn</button>
+      <button>🌀 Drill</button>
+      <button>🔔 Alerts</button>
+      <button>👥 Connect</button>
+      <button
+        style={{
+          background: "red",
+          color: "white",
+          padding: "8px 12px",
+          borderRadius: "20px",
+          border: "none",
+        }}
+      >
+        SOS
+      </button>
+    </div>
+  );
+}
+
+export default function Dashboard() {
+  const cards = [
+    {
+      title: "Learn Modules",
+      description: "Interactive lessons on disaster preparedness",
+      button: "Start",
+    },
+    {
+      title: "Virtual Drill Simulator",
+      description: "Practice safety procedures in simulated scenarios",
+      button: "Simulate",
+    },
+    {
+      title: "Region-Specific Alerts",
+      description: "Localized safety tips and emergency information",
+      button: "View",
+    },
+  ];
+
+  return (
+    <div
+      style={{
+        fontFamily: "sans-serif",
+        padding: "15px",
+        paddingBottom: "80px",
+      }}
+    >
+      <h1
+        style={{ fontSize: "22px", fontWeight: "bold", marginBottom: "10px" }}
+      >
+        ResQWave
+      </h1>
+      <h2 style={{ fontSize: "20px", marginBottom: "15px" }}>Dashboard</h2>
+
+      {cards.map((card, i) => (
+        <div
+          key={i}
+          style={{
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            marginBottom: "12px",
+            padding: "15px",
+          }}
+        >
+          <strong>{card.title}</strong>
+          <p style={{ color: "gray", margin: "5px 0" }}>{card.description}</p>
+          <button
+            style={{
+              background: "#007bff",
+              color: "white",
+              padding: "8px 15px",
+              borderRadius: "6px",
+              border: "none",
+            }}
+          >
+            {card.button}
+          </button>
+        </div>
+      ))}
+
+      <BottomNav />
+    </div>
+  );
+}
+
+export function AlertsScreen() {
+  return (
+    <div
+      style={{
+        fontFamily: "sans-serif",
+        padding: "15px",
+        paddingBottom: "80px",
+      }}
+    >
+      <h2
+        style={{ fontSize: "20px", fontWeight: "bold", marginBottom: "10px" }}
+      >
+        Live Advisories
+      </h2>
+
+      {[
+        { title: "Earthquake Advisory", region: "San Francisco" },
+        { title: "Flood Advisory", region: "New Orleans" },
+        { title: "Hurricane Advisory", region: "Miami" },
+      ].map((item, i) => (
+        <div
+          key={i}
+          style={{
+            border: "1px solid #ddd",
+            borderRadius: "10px",
+            padding: "10px",
+            marginBottom: "8px",
+            display: "flex",
+            justifyContent: "space-between",
+            alignItems: "center",
+          }}
+        >
+          <div>
+            <strong>{item.title}</strong>
+            <p style={{ margin: 0, color: "gray" }}>Region: {item.region}</p>
+          </div>
+          <span style={{ fontSize: "20px" }}>›</span>
+        </div>
+      ))}
+
+      <h3 style={{ fontSize: "18px", fontWeight: "bold", marginTop: "20px" }}>
+        Do's & Don'ts
+      </h3>
+
+      <h4 style={{ marginTop: "10px" }}>Earthquake</h4>
+      <p
+        style={{ background: "#e6f4ea", padding: "10px", borderRadius: "8px" }}
+      >
+        ✅ <b>Do:</b> Drop, Cover, and Hold On. Stay indoors until the shaking
+        stops.
+      </p>
+      <p
+        style={{ background: "#fde8e8", padding: "10px", borderRadius: "8px" }}
+      >
+        ❌ <b>Don't:</b> Use elevators or stand near windows, bookcases, or
+        heavy furniture.
+      </p>
+
+      <h4>Flood</h4>
+      <p
+        style={{ background: "#e6f4ea", padding: "10px", borderRadius: "8px" }}
+      >
+        ✅ <b>Do:</b> Move to higher ground immediately. Follow evacuation
+        orders.
+      </p>
+      <p
+        style={{ background: "#fde8e8", padding: "10px", borderRadius: "8px" }}
+      >
+        ❌ <b>Don't:</b> Walk, swim, or drive through floodwaters. Stay away
+        from downed power lines.
+      </p>
+
+      <h3 style={{ fontSize: "18px", fontWeight: "bold", marginTop: "20px" }}>
+        Push Notifications
+      </h3>
+      <div
+        style={{
+          background: "#fff",
+          border: "1px solid #ddd",
+          borderRadius: "10px",
+          padding: "10px",
+          marginBottom: "8px",
+        }}
+      >
+        <p style={{ margin: 0, color: "red", fontWeight: "bold" }}>
+          URGENT ALERT
+        </p>
+        <strong>Earthquake Warning</strong>
+        <p style={{ margin: 0 }}>
+          Severe shaking expected in San Francisco. Drop, Cover, and Hold On
+          now!
+        </p>
+      </div>
+      <div
+        style={{
+          background: "#fff",
+          border: "1px solid #ddd",
+          borderRadius: "10px",
+          padding: "10px",
+        }}
+      >
+        <p style={{ margin: 0, color: "green", fontWeight: "bold" }}>
+          ALL CLEAR
+        </p>
+        <strong>Evacuation Order Lifted</strong>
+        <p style={{ margin: 0 }}>
+          The flood warning for New Orleans has been lifted. It is now safe to
+          return home. Proceed with caution.
+        </p>
+      </div>
+
+      <BottomNav />
+    </div>
+  );
+}
