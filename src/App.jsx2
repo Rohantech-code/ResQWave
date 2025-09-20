@@ -1,0 +1,75 @@
+import React from "react";
+
+export default function SafeCampus() {
+  const features = [
+    { title: "Learn", description: "Interactive lessons" },
+    { title: "Drill", description: "Simulated drills" },
+    { title: "Alerts", description: "Real-time alerts" },
+    { title: "Connect", description: "With peers & services" },
+  ];
+
+  return (
+    <div
+      style={{ fontFamily: "sans-serif", textAlign: "center", padding: "20px" }}
+    >
+      <h1 style={{ fontSize: "24px", fontWeight: "bold" }}>ResQWave</h1>
+      <h2 style={{ fontSize: "20px", marginTop: "10px" }}>
+        Be Ready, Stay Safe
+      </h2>
+      <p style={{ color: "gray", marginBottom: "20px" }}>
+        Empowering students with essential disaster preparedness skills.
+      </p>
+
+      <div
+        style={{
+          display: "grid",
+          gridTemplateColumns: "1fr 1fr",
+          gap: "10px",
+          maxWidth: "400px",
+          margin: "0 auto",
+        }}
+      >
+        {features.map((f, i) => (
+          <div
+            key={i}
+            style={{
+              border: "1px solid #ddd",
+              borderRadius: "10px",
+              padding: "15px",
+            }}
+          >
+            <h3 style={{ fontWeight: "bold" }}>{f.title}</h3>
+            <p style={{ color: "gray" }}>{f.description}</p>
+          </div>
+        ))}
+      </div>
+
+      <div
+        style={{
+          position: "fixed",
+          bottom: "20px",
+          left: "0",
+          right: "0",
+          display: "flex",
+          justifyContent: "center",
+          gap: "10px",
+        }}
+      >
+        <button style={{ padding: "10px 15px" }}>Learn</button>
+        <button style={{ padding: "10px 15px" }}>Drill</button>
+        <button style={{ padding: "10px 15px" }}>Alerts</button>
+        <button style={{ padding: "10px 15px" }}>Connect</button>
+        <button
+          style={{
+            padding: "10px 20px",
+            background: "red",
+            color: "white",
+            borderRadius: "50%",
+          }}
+        >
+          SOS
+        </button>
+      </div>
+    </div>
+  );
+}
